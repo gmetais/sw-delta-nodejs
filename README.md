@@ -1,8 +1,10 @@
 ## sw-delta-nodejs
 
-**sw-delta** is a browser cache - based on a Service Worker - that only loads the delta (=diff) of a file when it's modified. Please have a look at [the sw-delta repository](https://github.com/gmetais/sw-delta) for more information.
+**sw-delta-nodejs** is a NodeJS server-side implementation for **sw-delta**.
 
-**sw-delta-nodejs** is a NodeJS server-side implementation for sw-delta.
+**sw-delta** is a browser cache - based on a Service Worker - that only loads the delta (=diff) of a file when it's modified.
+
+Please have a look at [the sw-delta repository](https://github.com/gmetais/sw-delta) for more information.
 
 
 ## Usage example with Express
@@ -71,9 +73,9 @@ app.listen(80, function () {
 ```
 
 
-## API
+## API explanation
 
-#### swDelta.getDelta(askedFilePath, cachedFilePath)
+### swDelta.getDelta(askedFilePath, cachedFilePath)
 
 The function checks if both files exist and calculates the delta between them. `askedFilePath` and `cachedFilePath` need to be file system paths of the files on your server.
 
@@ -81,8 +83,8 @@ It returns a promise that you need to handle.
 
 ```js
 swDelta.getDelta(askedFilePath, cachedFilePath)
-.then(successCallback)
-.fail(failureCallback)
+    .then(successCallback)
+    .fail(failureCallback)
 ```
 
 #### function successCallback(result) {...}
@@ -97,7 +99,7 @@ result = {
 }
 ```
 
-**Success scenario 2:** one of the two files could not be found on the server.
+**Success scenario 2:** one of the two files could not be found on the server. The other file is sent.
 ```
 result = {
      body: '...', // the content of the other file as a string
@@ -105,7 +107,7 @@ result = {
 }
 ```
 
-**Success scenario 3:** the delta was correctly calculated, but there are so many changes between the two files, that the weight of the delta file would be bigger than the asked file.
+**Success scenario 3:** the delta was correctly calculated, but there are so many changes between the two files that the weight of the delta file would be bigger than the asked file. The asked file is sent.
 ```
 result = {
      body: '...', // the content of the asked file as a string
@@ -114,7 +116,7 @@ result = {
 ```
 
 
-#### function failureCallback(error) {...}
+### function failureCallback(error) {...}
 
 The `error` object contains a `statusCode` and a `status`, ready to be sent to the client.
 
