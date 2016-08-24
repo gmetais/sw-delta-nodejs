@@ -45,6 +45,8 @@ var SwDelta = function() {
                 var delta = deltaCalculator.getDelta(cachedFilePromise.value, askedFilePromise.value);
 
                 // Check that the diff is not bigger than the asked file:
+                console.log("delta: %d", delta.length);
+                console.log("askedFile: %d", askedFilePromise.value.length);
                 if (delta.length > 0.9 * askedFilePromise.value.length) {
                     console.log('diff size is too big, returning the asked file instead');
                     deferred.resolve(fileResponse(askedFilePromise.value, askedFilePath));

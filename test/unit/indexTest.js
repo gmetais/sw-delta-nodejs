@@ -105,6 +105,7 @@ describe('Server Index', function() {
 
             .then(function(response) {
                 try {
+                    console.log(response);
                     expect(response).to.have.a.property('body').that.equals('');
                     expect(response).to.have.a.property('contentType').that.equals('text/sw-delta');
                     done();

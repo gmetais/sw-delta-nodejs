@@ -12,7 +12,14 @@
     "url": "git+https://github.com/gmetais/sw-delta-nodejs.git"
   },
   "keywords": [
-    "service-worker"
+    "serviceWorkers",
+    "performance",
+    "webperf",
+    "incremental",
+    "delta",
+    "versionning",
+    "server",
+    "nodejs"
   ],
   "author": "Gaël Métais",
   "license": "GPL-2.0",
@@ -22,14 +29,13 @@
   "homepage": "https://github.com/gmetais/sw-delta-nodejs#readme",
   "devDependencies": {
     "chai": "3.5.0",
-    "compression": "1.6.2",
-    "express": "4.14.0",
     "jshint": "2.9.2",
     "mocha": "2.5.3"
   },
   "dependencies": {
     "diff-match-patch": "1.0.0",
     "mime": "1.3.4",
-    "q": "1.4.1"
+    "q": "1.4.1",
+    "node-bsdiff": "0.1.4"
   }
 }
