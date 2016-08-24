@@ -7,6 +7,11 @@
 Please have a look at [the sw-delta repository](https://github.com/gmetais/sw-delta) for more information.
 
 
+## Installation
+
+```npm install sw-delta-nodejs --save```
+
+
 ## Usage example with Express
 
 ```js
