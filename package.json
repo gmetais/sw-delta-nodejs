@@ -1,6 +1,6 @@
 {
   "name": "sw-delta-nodejs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A NodeJS server-side implementation for sw-delta",
   "main": "index.js",
   "scripts": {
